@@ -1,5 +1,5 @@
 //
-//  AddEditVC.swift
+//  AddEditVC.swift - Add and Modify Images
 //  SnapLister
 //
 

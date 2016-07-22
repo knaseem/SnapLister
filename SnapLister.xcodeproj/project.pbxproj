@@ -15,6 +15,7 @@
 		E9B8E6E91D417B8000862721 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9B8E6E71D417B8000862721 /* LaunchScreen.storyboard */; };
 		E9B8E6F81D4182FB00862721 /* Picture+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B8E6F61D4182FB00862721 /* Picture+CoreDataProperties.swift */; };
 		E9B8E6F91D4182FB00862721 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B8E6F71D4182FB00862721 /* Picture.swift */; };
+		E9B8E6FB1D42966100862721 /* MainTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B8E6FA1D42966100862721 /* MainTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E9B8E6EA1D417B8000862721 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9B8E6F61D4182FB00862721 /* Picture+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Picture+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E9B8E6F71D4182FB00862721 /* Picture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
+		E9B8E6FA1D42966100862721 /* MainTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				E9B8E6DB1D417B8000862721 /* AppDelegate.swift */,
+				E9B8E6FA1D42966100862721 /* MainTVC.swift */,
 				E9B8E6DD1D417B8000862721 /* AddEditVC.swift */,
 				E9B8E6DF1D417B8000862721 /* Main.storyboard */,
 				E9B8E6E51D417B8000862721 /* Assets.xcassets */,
@@ -148,6 +151,7 @@
 				E9B8E6F91D4182FB00862721 /* Picture.swift in Sources */,
 				E9B8E6DE1D417B8000862721 /* AddEditVC.swift in Sources */,
 				E9B8E6DC1D417B8000862721 /* AppDelegate.swift in Sources */,
+				E9B8E6FB1D42966100862721 /* MainTVC.swift in Sources */,
 				E9B8E6E41D417B8000862721 /* SnapLister.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
