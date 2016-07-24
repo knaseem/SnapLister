@@ -7,18 +7,53 @@
 //
 
 import UIKit
+import CoreData
 
-class MainTVC: UITableViewController {
-
+class MainTVC: UITableViewController, NSFetchedResultsControllerDelegate {
+    
+    //MARK: Managed Object Context (serves table as flash saved)
+    let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
+    //MARK: Fetched Results Controller
+    var frc : NSFetchedResultsController = NSFetchedResultsController()
+    
+    //MARK: Function for fetch request
+    func fetchRequest() -> NSFetchRequest {
+        let fetchRequest = NSFetchRequest(entityName: "Picture")
+        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        return fetchRequest
+    }
+    
+    //MARK: Get fetch requests controller
+    func getFRC() -> NSFetchedResultsController {
+        frc = NSFetchedResultsController(fetchRequest: fetchRequest(), managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+        return frc
+        
+    }
+    
+    //MARK: Tableview background setup
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        self.tableView.rowHeight = 75
+        self.tableView.backgroundView = UIImageView(image: UIImage(named: "bg.jpg"))
+        self.tableView.backgroundView?.alpha = 0.75
+        
+        // set frc
+        frc = getFRC()
+        frc.delegate = self
+        
+        // Perform initial fetch
+        do {
+            try frc.performFetch()
+        } catch {
+            print("fetch failed.")
+            return
+        }
+        
+        //When we load initial fetch we want to reload tabledata.
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,23 +65,36 @@ class MainTVC: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        
+        let numberOfSections = frc.sections?.count
+        return numberOfSections!
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        let numbeOfRowsInSection = frc.sections?[section].numberOfObjects
+        return numbeOfRowsInSection!
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
 
         // Configure the cell...
+        cell.textLabel?.textColor = UIColor.blackColor()
+        cell.textLabel?.backgroundColor = UIColor.clearColor()
+        cell.detailTextLabel?.backgroundColor = UIColor.clearColor()
+       
+        
+        let picture = frc.objectAtIndexPath(indexPath) as! Picture
+        cell.textLabel!.text = picture.title
+        cell.detailTextLabel!.text = picture.location
+        cell.imageView?.image = UIImage(data: (picture.image)!)
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
@@ -56,17 +104,29 @@ class MainTVC: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        
+        let managedObject : NSManagedObject = frc.objectAtIndexPath(indexPath) as! NSManagedObject
+        moc.deleteObject(managedObject)
+        
+        do {
+            try moc.save()
+            
+        } catch {
+            print("Failed to save.")
+            return
+        }
     }
-    */
+    
+    // Callback function when swipe to delete cell
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        
+        tableView.reloadData()
+    }
+    
+    
 
     /*
     // Override to support rearranging the table view.
@@ -83,14 +143,23 @@ class MainTVC: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }
-    */
+        if segue.identifier == "edit" {
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPathForCell(cell)
+            let picController : AddEditVC = segue.destinationViewController as! AddEditVC
+            let picture : Picture = frc.objectAtIndexPath(indexPath!) as! Picture
+            picController.picture = picture
+            
+        }
 
+    }
+    
+    
 }
