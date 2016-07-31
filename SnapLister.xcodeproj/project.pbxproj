@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E93F2DA51D46802900EBFAAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E93F2DA41D46802900EBFAAB /* Assets.xcassets */; };
 		E9B8E6DC1D417B8000862721 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B8E6DB1D417B8000862721 /* AppDelegate.swift */; };
 		E9B8E6DE1D417B8000862721 /* AddEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B8E6DD1D417B8000862721 /* AddEditVC.swift */; };
 		E9B8E6E11D417B8000862721 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9B8E6DF1D417B8000862721 /* Main.storyboard */; };
 		E9B8E6E41D417B8000862721 /* SnapLister.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9B8E6E21D417B8000862721 /* SnapLister.xcdatamodeld */; };
-		E9B8E6E61D417B8000862721 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9B8E6E51D417B8000862721 /* Assets.xcassets */; };
 		E9B8E6E91D417B8000862721 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9B8E6E71D417B8000862721 /* LaunchScreen.storyboard */; };
 		E9B8E6F81D4182FB00862721 /* Picture+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B8E6F61D4182FB00862721 /* Picture+CoreDataProperties.swift */; };
 		E9B8E6F91D4182FB00862721 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B8E6F71D4182FB00862721 /* Picture.swift */; };
@@ -19,12 +19,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E93F2DA41D46802900EBFAAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9B8E6D81D417B8000862721 /* SnapLister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapLister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B8E6DB1D417B8000862721 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9B8E6DD1D417B8000862721 /* AddEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditVC.swift; sourceTree = "<group>"; };
 		E9B8E6E01D417B8000862721 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9B8E6E31D417B8000862721 /* SnapLister.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SnapLister.xcdatamodel; sourceTree = "<group>"; };
-		E9B8E6E51D417B8000862721 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9B8E6E81D417B8000862721 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9B8E6EA1D417B8000862721 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9B8E6F61D4182FB00862721 /* Picture+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Picture+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -67,8 +67,8 @@
 				E9B8E6DB1D417B8000862721 /* AppDelegate.swift */,
 				E9B8E6FA1D42966100862721 /* MainTVC.swift */,
 				E9B8E6DD1D417B8000862721 /* AddEditVC.swift */,
+				E93F2DA41D46802900EBFAAB /* Assets.xcassets */,
 				E9B8E6DF1D417B8000862721 /* Main.storyboard */,
-				E9B8E6E51D417B8000862721 /* Assets.xcassets */,
 				E9B8E6E71D417B8000862721 /* LaunchScreen.storyboard */,
 				E9B8E6EA1D417B8000862721 /* Info.plist */,
 				E9B8E6E21D417B8000862721 /* SnapLister.xcdatamodeld */,
@@ -108,6 +108,7 @@
 				TargetAttributes = {
 					E9B8E6D71D417B8000862721 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 5QF7ULFA3J;
 					};
 				};
 			};
@@ -135,7 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9B8E6E91D417B8000862721 /* LaunchScreen.storyboard in Resources */,
-				E9B8E6E61D417B8000862721 /* Assets.xcassets in Resources */,
+				E93F2DA51D46802900EBFAAB /* Assets.xcassets in Resources */,
 				E9B8E6E11D417B8000862721 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,10 +269,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SnapLister/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.naseem.SnapLister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -281,10 +285,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SnapLister/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.naseem.SnapLister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

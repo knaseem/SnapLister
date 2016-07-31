@@ -38,7 +38,7 @@ class MainTVC: UITableViewController, NSFetchedResultsControllerDelegate {
         
         self.tableView.rowHeight = 75
         self.tableView.backgroundView = UIImageView(image: UIImage(named: "bg.jpg"))
-        self.tableView.backgroundView?.alpha = 0.75
+        self.tableView.backgroundView?.alpha = 0.65
         
         // set frc
         frc = getFRC()
