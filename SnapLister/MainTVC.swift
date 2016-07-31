@@ -11,7 +11,7 @@ import CoreData
 
 class MainTVC: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    //MARK: Managed Object Context (serves table as flash saved)
+    //MARK: Managed Object Context (serves table as flash saved).
     let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     //MARK: Fetched Results Controller
@@ -54,11 +54,6 @@ class MainTVC: UITableViewController, NSFetchedResultsControllerDelegate {
         
         //When we load initial fetch we want to reload tabledata.
         self.tableView.reloadData()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
