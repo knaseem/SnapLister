@@ -52,6 +52,7 @@ class AddEditVC: UIViewController, NSFetchedResultsControllerDelegate, UIImagePi
         dismissVC()
     }
     
+    // Add Image from device photoLibrary
     @IBAction func addImageFromDevice(sender: AnyObject) {
         
         let pickerController = UIImagePickerController()
